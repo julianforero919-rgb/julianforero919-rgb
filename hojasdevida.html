@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hojas de Vida – SIDOVI</title>
+  <link rel="stylesheet" href="css/estilos.css" />
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand"><img src="img/logo_sidovi.png" alt="Logo SIDOVI" class="brand-logo" /></div>
+    <nav aria-label="Navegación principal">
+      <ul class="nav-list">
+        <li><a href="index.html" class="nav-link">Inicio Público</a></li>
+        <li><a href="RRHH.html" class="nav-link">Panel RRHH</a></li>
+        <li><a href="login.html" class="nav-link nav-cta">Cerrar Sesión</a></li>
+      </ul>
+    </nav>
+    <button class="menu-toggle" aria-label="Abrir menú" id="menuToggle">&#9776;</button>
+  </div>
+</header>
+
+<div class="panel-layout">
+  <aside class="sidebar" aria-label="Menú del panel">
+    <span class="sidebar-title">Gestión</span>
+    <a href="RRHH.html" class="sidebar-link"><span class="icon">📋</span> Dashboard</a>
+    <a href="postulantes.html" class="sidebar-link"><span class="icon">👥</span> Postulantes</a>
+    <a href="hojasdevida.html" class="sidebar-link active" aria-current="page"><span class="icon">📄</span> Hojas de Vida</a>
+    <a href="agenda.html" class="sidebar-link"><span class="icon">📅</span> Agenda</a>
+    <a href="reporte.html" class="sidebar-link"><span class="icon">📊</span> Reportes</a>
+    <span class="sidebar-title" style="margin-top:1rem;">Accesos</span>
+    <a href="trabajadores.html" class="sidebar-link"><span class="icon">👷</span> Trabajadores</a>
+  </aside>
+
+  <main class="panel-content" aria-labelledby="hdv-list-title">
+    <div class="panel-header">
+      <h1 id="hdv-list-title">Hojas de Vida Recibidas</h1>
+      <p>Revisa y gestiona las hojas de vida de los aspirantes postulados.</p>
+    </div>
+
+    <div class="filter-bar">
+      <input type="text" placeholder="🔍 Buscar aspirante..." aria-label="Buscar" />
+      <select aria-label="Filtrar por cargo">
+        <option value="">Todos los cargos</option>
+        <option>Guarda de Seguridad</option>
+        <option>Supervisor</option>
+        <option>Auxiliar RRHH</option>
+        <option>Técnico CCTV</option>
+      </select>
+    </div>
+
+    <div class="data-table-wrap">
+      <h2>Documentos Recibidos</h2>
+      <table>
+        <thead>
+        <tr>
+          <th scope="col">Aspirante</th>
+          <th scope="col">Cargo</th>
+          <th scope="col">Fecha Envío</th>
+          <th scope="col">Documentos</th>
+          <th scope="col">Estado HV</th>
+          <th scope="col">Acciones</th>
+        </tr>
+        </thead>
+        <tbody id="hojasVidaBody">
+        <tr>
+          <td><strong>Juan Pérez García</strong></td>
+          <td>Guarda de Seguridad</td>
+          <td>09/04/2025</td>
+          <td>
+            <span style="font-size:0.82rem;color:var(--azul-claro);">📎 HV · 📎 Cédula</span>
+          </td>
+          <td><span class="badge badge-pendiente">Sin Revisar</span></td>
+          <td style="display:flex;gap:0.4rem;"><a href="hdv.html" class="btn-xs btn-xs-blue">Abrir HDV</a></td>
+        </tr>
+        <tr>
+          <td><strong>María López Ruiz</strong></td>
+          <td>Auxiliar RRHH</td>
+          <td>08/04/2025</td>
+          <td><span style="font-size:0.82rem;color:var(--azul-claro);">📎 HV · 📎 Cédula · 📎 Cert.</span></td>
+          <td><span class="badge badge-entrevista">Revisada</span></td>
+          <td style="display:flex;gap:0.4rem;"><a href="hdv.html" class="btn-xs btn-xs-blue">Abrir HDV</a></td>
+        </tr>
+        <tr>
+          <td><strong>Carlos Romero Silva</strong></td>
+          <td>Supervisor Seguridad</td>
+          <td>07/04/2025</td>
+          <td><span style="font-size:0.82rem;color:var(--azul-claro);">📎 HV · 📎 Cédula · 📎 Curso</span></td>
+          <td><span class="badge badge-aprobado">Aprobada</span></td>
+          <td style="display:flex;gap:0.4rem;"><a href="hdv.html" class="btn-xs btn-xs-blue">Abrir HDV</a></td>
+        </tr>
+        <tr>
+          <td><strong>Ana Martínez Cruz</strong></td>
+          <td>Técnico CCTV</td>
+          <td>06/04/2025</td>
+          <td><span style="font-size:0.82rem;color:var(--azul-claro);">📎 HV · 📎 Cédula</span></td>
+          <td><span class="badge badge-pendiente">Sin Revisar</span></td>
+          <td style="display:flex;gap:0.4rem;"><a href="hdv.html" class="btn-xs btn-xs-blue">Abrir HDV</a></td>
+        </tr>
+        <tr>
+          <td><strong>Valentina Castro Gómez</strong></td>
+          <td>Técnico CCTV</td>
+          <td>02/04/2025</td>
+          <td><span style="font-size:0.82rem;color:var(--azul-claro);">📎 HV · 📎 Cédula · 📎 Dipl.</span></td>
+          <td><span class="badge badge-aprobado">Aprobada</span></td>
+          <td style="display:flex;gap:0.4rem;"><a href="hdv.html" class="btn-xs btn-xs-blue">Abrir HDV</a></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <img src="img/logo_sidovi.png" alt="SIDOVI" class="footer-logo" />
+    <p>&copy; 2025 SIDOVI · Colviseg Ltda.</p>
+    <nav aria-label="Pie de página"><ul class="footer-nav"><li><a href="RRHH.html">Dashboard</a></li><li><a href="login.html">Salir</a></li></ul></nav>
+  </div>
+</footer>
+<script src="js/nav.js"></script>
+<script src="js/hojasdevida.js"></script>
+</body>
+</html>

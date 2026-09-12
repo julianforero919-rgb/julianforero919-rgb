@@ -1,0 +1,32 @@
+# Project TODO
+
+- [x] Importar y auditar el proyecto SIDOVI adjunto sin cambiar su UI visible
+- [x] Identificar tablas, consultas, claves foráneas y conexiones actuales
+- [x] Definir el esquema PostgreSQL completo basado en el diagrama revisado
+- [x] Relacionar RECURSOS_HUMANOS con CARGO mediante la clave foránea correspondiente
+- [x] Preparar las vistas VISTA_HISTORIAL_ASPIRANTE y VISTA_ESTADISTICA_POSTULACIONES para consulta de Recursos Humanos
+- [x] Adaptar únicamente el backend, consultas y conexiones para PostgreSQL
+- [x] Mantener sin cambios la apariencia, pantallas, botones y comportamiento visible
+- [x] Crear script SQL completo con tablas, restricciones, relaciones, índices y vistas
+- [x] Crear configuración de conexión y guía de ejecución para IntelliJ IDEA
+- [x] Añadir y ejecutar pruebas Vitest para las consultas y relaciones actualizadas (incluye endpoints REST con consultas controladas)
+- [x] Validar sintaxis del servidor, pruebas, archivos UI sin cambios y arranque HTTP; conectividad real queda documentada para ejecutarse en IntelliJ
+- [x] Guardar checkpoint final del proyecto integrado
+- [x] Corregir la prioridad de variables para que PostgreSQL local use DB_* antes del DATABASE_URL reservado por el entorno
+- [x] Añadir pruebas Vitest que ejerzan los endpoints REST y verifiquen consultas con la relación cargo.id_rrhh
+- [x] Validar la ejecución estándar con npm start, endpoint health y documentar la limitación de PostgreSQL local en el sandbox
+- [x] Añadir una prueba de integridad con fixture SQL que confirme cargo.id_rrhh referencia recursos_humanos.id_rrhh
+- [x] Ejecutar explícitamente npm start y comprobar /api/health; documentar si PostgreSQL local no está accesible en el sandbox
+- [x] Añadir prueba PostgreSQL real transaccional para validar join y rechazo de cargo.id_rrhh inexistente cuando SIDOVI_RUN_DB_TEST=true
+- [x] Separar en la documentación la validación HTTP del sandbox de la prueba real de conexión local en IntelliJ
+- [x] Añadir prueba opcional contra las tablas reales de SIDOVI cuando SIDOVI_RUN_DB_TEST=true, validando cargo.id_rrhh y el error FK 23503
+- [x] Reescribir README con secciones separadas para validación HTTP del sandbox y validación real PostgreSQL desde IntelliJ
+- [x] Corregir el ciclo de vida del pool en postgres-connection.test.ts para que las pruebas reales no se cierren entre bloques
+- [x] Intentar y registrar la prueba real SIDOVI_RUN_DB_TEST=true; el sandbox no tiene PostgreSQL accesible y la ejecución queda documentada para IntelliJ
+- [x] Forzar ssl=false en el pool cuando PGSSL=false para respetar la configuración local aunque exista PGSSLMODE heredado
+- [x] Reejecutar la prueba real SIDOVI_RUN_DB_TEST=true con ssl=false y registrar el resultado final
+- [x] Documentar el error exacto final si el sandbox sigue sin PostgreSQL accesible, diferenciándolo de SSL
+- [x] Alinear la prueba de conexión para priorizar DB_* antes de DATABASE_URL y respetar PGSSL=false
+- [ ] Corregir estilos y recursos estáticos que no cargan correctamente al abrir SIDOVI en localhost:3000
+- [ ] Diagnosticar por qué la instalación local del usuario sigue mostrando SIDOVI sin estilos
+- [ ] Crear ZIP completo de SIDOVI con css, js, img, HTML, backend, SQL, pruebas y README, excluyendo credenciales

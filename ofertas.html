@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Ofertas Laborales – SIDOVI</title>
+
+  <link rel="stylesheet" href="css/estilos.css" />
+
+  <style>
+    /* =====================================================
+       ENCABEZADO: 50% BLANCO + 50% ROJO
+       ===================================================== */
+
+    .site-header {
+      width: 100%;
+      background: linear-gradient(
+              to right,
+              #ffffff 0%,
+              #ffffff 40%,
+              #c8102e 40%,
+              #c8102e 100%
+      );
+    }
+
+    .header-inner {
+      width: 100%;
+      min-height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      box-sizing: border-box;
+    }
+
+    .brand-logo {
+      max-width: 80px;
+      height: auto;
+    }
+
+    /* =====================================================
+       NAVEGACIÓN
+       ===================================================== */
+
+    nav {
+      width: 50%;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .nav-list {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 15px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* BOTONES SUPERIORES */
+
+    .nav-link {
+      color: #ffffff !important;
+      text-decoration: none;
+      font-weight: 700;
+
+      padding: 10px 16px;
+
+      border: 2px solid #ffffff;
+      border-radius: 6px;
+
+      display: inline-block;
+
+      transition:
+              background-color 0.3s ease,
+              color 0.3s ease,
+              transform 0.2s ease;
+    }
+
+    /* EFECTO AL PASAR EL MOUSE */
+
+    .nav-link:hover {
+      background-color: #ffffff;
+      color: #c8102e !important;
+      transform: translateY(-2px);
+    }
+
+    /* BOTÓN ACTIVO: OFERTAS */
+
+    .nav-link.active {
+      background-color: #ffffff;
+      color: #c8102e !important;
+      border: 2px solid #ffffff;
+    }
+
+    /* BOTÓN ACCESO PERSONAL */
+
+    .nav-cta {
+      background: #ffffff;
+      color: #c8102e !important;
+
+      padding: 10px 16px;
+
+      border: 2px solid #ffffff;
+      border-radius: 6px;
+
+      font-weight: 700;
+
+      transition:
+              background-color 0.3s ease,
+              color 0.3s ease,
+              transform 0.2s ease;
+    }
+
+    .nav-cta:hover {
+      background-color: transparent;
+      color: #ffffff !important;
+      transform: translateY(-2px);
+    }
+
+    .menu-toggle {
+      display: none;
+    }
+
+
+    /* =====================================================
+       SECCIÓN VACANTES
+       IMAGEN DE FONDO + CAPA AZUL
+       ===================================================== */
+
+    .page-hero {
+      min-height: 150px;
+      width: 100%;
+
+      /* Color azul de respaldo */
+      background-color: #123b63;
+
+      /*
+        IMAGEN DE FONDO
+
+        Guarda la imagen en:
+
+        img/fondo-vacantes.png
+      */
+
+      background-image:
+              linear-gradient(
+                      rgba(10, 45, 80, 0.65),
+                      rgba(10, 45, 80, 0.65)
+              ),
+              url("img/fondo-vacantes.png");
+
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      display: flex;
+      align-items: center;
+      text-align: center;
+    }
+
+    .page-hero .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: auto;
+      padding: 60px 20px;
+      box-sizing: border-box;
+    }
+
+    .page-hero h1 {
+      color: #ffffff;
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .page-hero h1 .accent {
+      color: #ffffff;
+    }
+
+    .page-hero p {
+      color: #ffffff;
+      font-size: 1.15rem;
+      max-width: 750px;
+      margin: auto;
+      line-height: 1.6;
+    }
+
+
+    /* =====================================================
+       FILTRO DE VACANTES
+       ===================================================== */
+
+    .ofertas-filter {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin: 1rem 0 1.5rem;
+    }
+
+    .ofertas-filter label {
+      font-weight: 700;
+      color: var(--azul-oscuro);
+    }
+
+    .ofertas-filter select {
+      max-width: 320px;
+    }
+
+
+    /* =====================================================
+       RESPONSIVE
+       ===================================================== */
+
+    @media (max-width: 768px) {
+
+      .site-header {
+        background: #ffffff;
+      }
+
+      .header-inner {
+        padding: 15px 20px;
+        flex-wrap: wrap;
+      }
+
+      .brand {
+        width: auto;
+      }
+
+      nav {
+        width: auto;
+      }
+
+      .nav-list {
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .nav-link {
+        color: #c8102e !important;
+        border: 2px solid #c8102e;
+        padding: 8px 12px;
+      }
+
+      .nav-link:hover {
+        background-color: #c8102e;
+        color: #ffffff !important;
+      }
+
+      .nav-link.active {
+        background-color: #c8102e;
+        color: #ffffff !important;
+        border: 2px solid #c8102e;
+      }
+
+      .nav-cta {
+        background: #c8102e;
+        color: #ffffff !important;
+        border: 2px solid #c8102e;
+        padding: 8px 12px;
+      }
+
+      .nav-cta:hover {
+        background-color: #ffffff;
+        color: #c8102e !important;
+      }
+
+      .page-hero {
+        min-height: 150px;
+        background-position: center;
+      }
+
+      .page-hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .page-hero p {
+        font-size: 1rem;
+      }
+    }
+
+
+    /* =====================================================
+       PANTALLAS PEQUEÑAS
+       ===================================================== */
+
+    @media (max-width: 480px) {
+
+      .header-inner {
+        padding: 12px 15px;
+      }
+
+      .brand-logo {
+        max-width: 120px;
+      }
+
+      .nav-list {
+        gap: 6px;
+      }
+
+      .nav-link,
+      .nav-cta {
+        padding: 7px 9px;
+        font-size: 0.85rem;
+      }
+
+      .page-hero {
+        min-height: 150px;
+      }
+
+      .page-hero .container {
+        padding: 45px 15px;
+      }
+
+      .page-hero h1 {
+        font-size: 1.8rem;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+     50% IZQUIERDA BLANCO
+     50% DERECHA ROJO
+     ===================================================== -->
+
+<header class="site-header">
+
+  <div class="header-inner">
+
+    <!-- MITAD IZQUIERDA: BLANCA -->
+
+    <div class="brand">
+
+      <img
+              src="img/colviseg.png"
+              alt="Logo SIDOVI"
+              class="brand-logo"
+      />
+
+    </div>
+
+
+    <!-- MITAD DERECHA: ROJA -->
+
+    <nav aria-label="Navegación principal">
+
+      <ul class="nav-list">
+
+        <!-- INICIO -->
+
+        <li>
+          <a
+                  href="index.html"
+                  class="nav-link"
+          >
+            Inicio
+          </a>
+        </li>
+
+
+        <!-- OFERTAS -->
+
+        <li>
+          <a
+                  href="ofertas.html"
+                  class="nav-link active"
+                  aria-current="page"
+          >
+            Ofertas
+          </a>
+        </li>
+
+
+        <!-- POSTULARSE -->
+
+        <li>
+          <a
+                  href="postulacion.html"
+                  class="nav-link"
+          >
+            Postularse
+          </a>
+        </li>
+
+
+        <!-- ACCESO PERSONAL -->
+
+        <li>
+          <a
+                  href="login.html"
+                  class="nav-link nav-cta"
+          >
+            Acceso Personal
+          </a>
+        </li>
+
+      </ul>
+
+    </nav>
+
+
+    <!-- MENÚ MÓVIL -->
+
+    <button
+            class="menu-toggle"
+            aria-label="Abrir menú"
+            id="menuToggle"
+    >
+      &#9776;
+    </button>
+
+  </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     CONTENIDO PRINCIPAL
+     ===================================================== -->
+
+<main>
+
+
+  <!-- =====================================================
+       HERO
+       AZUL + IMAGEN DE FONDO
+       ===================================================== -->
+
+  <section
+          class="page-hero"
+          aria-labelledby="page-title"
+  >
+
+    <div class="container">
+
+      <h1 id="page-title">
+        Vacantes <span class="accent">Disponibles</span>
+      </h1>
+
+      <p>
+        Consulta las oportunidades laborales activas en
+        Colviseg Ltda. y da el primer paso en tu proceso
+        de vinculación.
+      </p>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       OFERTAS
+       ===================================================== -->
+
+  <section
+          class="ofertas-section"
+          aria-labelledby="ofertas-title"
+  >
+
+    <div class="container">
+
+
+      <h2 id="ofertas-title">
+        Cargos Abiertos
+      </h2>
+
+
+      <!-- FILTRO -->
+
+      <div class="ofertas-filter">
+
+        <label for="sedeFiltro">
+          Filtrar por sede:
+        </label>
+
+        <select id="sedeFiltro">
+
+          <option value="">
+            Todas las sedes
+          </option>
+
+        </select>
+
+      </div>
+
+
+
+      <!-- =================================================
+           TARJETAS DE OFERTAS
+           ================================================= -->
+
+      <div
+              class="ofertas-grid"
+              id="ofertasGrid"
+      >
+
+
+        <!-- OFERTA 1 -->
+
+        <article class="oferta-card">
+
+          <div class="oferta-header">
+
+              <span class="oferta-badge">
+                Operativo
+              </span>
+
+            <span class="oferta-status activo">
+                ● Activo
+              </span>
+
+          </div>
+
+
+          <h3>
+            Guarda de Seguridad
+          </h3>
+
+
+          <ul class="oferta-details">
+
+            <li>
+              <strong>Ubicación:</strong>
+              Bogotá, D.C.
+            </li>
+
+            <li>
+              <strong>Jornada:</strong>
+              Turnos rotativos
+            </li>
+
+            <li>
+              <strong>Experiencia:</strong>
+              1 año en seguridad privada
+            </li>
+
+            <li>
+              <strong>Requisito:</strong>
+              Curso de vigilancia vigente
+            </li>
+
+          </ul>
+
+
+          <a
+                  href="postulacion.html"
+                  class="btn btn-primary btn-sm"
+          >
+            Postularme
+          </a>
+
+        </article>
+
+
+
+        <!-- OFERTA 2 -->
+
+        <article class="oferta-card">
+
+          <div class="oferta-header">
+
+              <span class="oferta-badge">
+                Operativo
+              </span>
+
+            <span class="oferta-status activo">
+                ● Activo
+              </span>
+
+          </div>
+
+
+          <h3>
+            Supervisor de Seguridad
+          </h3>
+
+
+          <ul class="oferta-details">
+
+            <li>
+              <strong>Ubicación:</strong>
+              Bogotá, D.C.
+            </li>
+
+            <li>
+              <strong>Jornada:</strong>
+              Tiempo completo
+            </li>
+
+            <li>
+              <strong>Experiencia:</strong>
+              3 años en el sector
+            </li>
+
+            <li>
+              <strong>Requisito:</strong>
+              Liderazgo de equipos
+            </li>
+
+          </ul>
+
+
+          <a
+                  href="postulacion.html"
+                  class="btn btn-primary btn-sm"
+          >
+            Postularme
+          </a>
+
+        </article>
+
+
+
+        <!-- OFERTA 3 -->
+
+        <article class="oferta-card">
+
+          <div class="oferta-header">
+
+              <span class="oferta-badge">
+                Administrativo
+              </span>
+
+            <span class="oferta-status activo">
+                ● Activo
+              </span>
+
+          </div>
+
+
+          <h3>
+            Auxiliar de RRHH
+          </h3>
+
+
+          <ul class="oferta-details">
+
+            <li>
+              <strong>Ubicación:</strong>
+              Bogotá, D.C.
+            </li>
+
+            <li>
+              <strong>Jornada:</strong>
+              Lunes a viernes
+            </li>
+
+            <li>
+              <strong>Experiencia:</strong>
+              1 año en gestión humana
+            </li>
+
+            <li>
+              <strong>Requisito:</strong>
+              Manejo de herramientas Office
+            </li>
+
+          </ul>
+
+
+          <a
+                  href="postulacion.html"
+                  class="btn btn-primary btn-sm"
+          >
+            Postularme
+          </a>
+
+        </article>
+
+
+
+        <!-- OFERTA 4 -->
+
+        <article class="oferta-card">
+
+          <div class="oferta-header">
+
+              <span class="oferta-badge">
+                Tecnología
+              </span>
+
+            <span class="oferta-status activo">
+                ● Activo
+              </span>
+
+          </div>
+
+
+          <h3>
+            Técnico CCTV
+          </h3>
+
+
+          <ul class="oferta-details">
+
+            <li>
+              <strong>Ubicación:</strong>
+              Bogotá, D.C.
+            </li>
+
+            <li>
+              <strong>Jornada:</strong>
+              Tiempo completo
+            </li>
+
+            <li>
+              <strong>Experiencia:</strong>
+              2 años en instalación de cámaras
+            </li>
+
+            <li>
+              <strong>Requisito:</strong>
+              Conocimientos en redes IP
+            </li>
+
+          </ul>
+
+
+          <a
+                  href="postulacion.html"
+                  class="btn btn-primary btn-sm"
+          >
+            Postularme
+          </a>
+
+        </article>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+
+<footer class="site-footer">
+
+  <div class="footer-inner">
+
+    <img
+            src="img/logo_sidovi.png"
+            alt="SIDOVI logo"
+            class="footer-logo"
+    />
+
+    <p>
+      &copy; 2026 SIDOVI · Colviseg Ltda. ·
+      Todos los derechos reservados.
+    </p>
+
+  </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+     ===================================================== -->
+
+<script src="js/nav.js"></script>
+<script src="js/ofertas.js"></script>
+
+
+</body>
+
+</html>

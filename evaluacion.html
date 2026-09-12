@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Decisión Final – SIDOVI</title>
+  <link rel="stylesheet" href="css/estilos.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand"><img src="img/logo_sidovi.png" alt="Logo SIDOVI" class="brand-logo" /></div>
+      <nav aria-label="Navegación principal">
+        <ul class="nav-list">
+          <li><a href="gerente.html" class="nav-link">Gerencia</a></li>
+          <li><a href="evaluar.html" class="nav-link">Evaluar</a></li>
+          <li><a href="evaluacion.html" class="nav-link active" aria-current="page">Decisión Final</a></li>
+          <li><a href="login.html" class="nav-link nav-cta">Cerrar Sesión</a></li>
+        </ul>
+      </nav>
+      <button class="menu-toggle" aria-label="Abrir menú" id="menuToggle">&#9776;</button>
+    </div>
+  </header>
+
+  <main style="padding:2.5rem 1.5rem;background:var(--gris-bg);min-height:calc(100vh - 150px);" aria-labelledby="dec-title">
+    <div class="container" style="max-width:700px;">
+      <h1 id="dec-title" style="color:var(--azul-oscuro);margin-bottom:0.5rem;">Decisión Final de Contratación</h1>
+      <p style="color:var(--gris-claro);margin-bottom:2rem;">Confirma la decisión final para el candidato antes de generar el contrato.</p>
+
+      <!-- CANDIDATO INFO -->
+      <div style="background:var(--blanco);border-radius:var(--radius-lg);padding:2rem;box-shadow:var(--shadow-card);border:1px solid var(--border);margin-bottom:1.5rem;">
+        <div style="display:flex;align-items:center;gap:1.25rem;margin-bottom:1.5rem;flex-wrap:wrap;">
+          <div style="width:70px;height:70px;border-radius:50%;background:linear-gradient(135deg,var(--azul-claro),var(--azul-bright));display:flex;align-items:center;justify-content:center;font-size:2rem;flex-shrink:0;" aria-hidden="true">👤</div>
+          <div>
+            <h2 style="color:var(--azul-oscuro);margin-bottom:0.15rem;">Carlos Romero Silva</h2>
+            <p style="color:var(--gris-claro);font-size:0.9rem;">Supervisor de Seguridad · Radicado: SID-2025-00318</p>
+            <span class="badge badge-aprobado">Aprobado por RRHH y Gerencia</span>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;font-size:0.9rem;">
+          <div style="background:var(--gris-bg);padding:0.85rem;border-radius:var(--radius);">
+            <strong style="color:var(--azul-oscuro);display:block;margin-bottom:0.25rem;">Puntaje RRHH</strong>
+            <span style="font-size:1.3rem;color:var(--azul-claro);font-family:var(--font-display);font-weight:700;">4.6 / 5.0 ⭐</span>
+          </div>
+          <div style="background:var(--gris-bg);padding:0.85rem;border-radius:var(--radius);">
+            <strong style="color:var(--azul-oscuro);display:block;margin-bottom:0.25rem;">Puntaje Gerencial</strong>
+            <span style="font-size:1.3rem;color:var(--azul-claro);font-family:var(--font-display);font-weight:700;">4.0 / 5.0 ⭐</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- DECISION -->
+      <div style="background:var(--blanco);border-radius:var(--radius-lg);padding:2rem;box-shadow:var(--shadow-card);border:1px solid var(--border);margin-bottom:1.5rem;">
+        <h2 style="font-family:var(--font-display);color:var(--azul-oscuro);margin-bottom:1.25rem;font-size:1.1rem;text-transform:uppercase;letter-spacing:0.05em;">Confirmar Decisión</h2>
+
+        <div class="field" style="margin-bottom:1.25rem;">
+          <label for="dec-tipo">Tipo de Vinculación</label>
+          <select id="dec-tipo">
+            <option>Contrato a Término Fijo – 1 año</option>
+            <option>Contrato a Término Fijo – 6 meses</option>
+            <option>Contrato a Término Indefinido</option>
+            <option>Contrato por Obra o Labor</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="dec-inicio">Fecha de Inicio</label>
+            <input type="date" id="dec-inicio" value="2025-04-15" />
+          </div>
+          <div class="field">
+            <label for="dec-salario">Salario Acordado (COP)</label>
+            <input type="text" id="dec-salario" value="$1,423,500" />
+          </div>
+        </div>
+        <div class="field" style="margin-bottom:1.5rem;">
+          <label for="dec-obs">Observaciones Finales</label>
+          <textarea id="dec-obs" rows="3" placeholder="Notas adicionales para el contrato..."></textarea>
+        </div>
+
+        <div id="dec-alert" class="form-alert" role="alert" aria-live="polite" hidden></div>
+
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+          <a href="contrato.html" class="btn btn-primary">✅ Confirmar y Generar Contrato</a>
+          <button type="button" class="btn btn-outline" style="border-color:var(--rojo);color:var(--rojo);" id="btnRechazar">❌ Rechazar Candidato</button>
+          <a href="gerente.html" class="btn btn-outline" style="border-color:var(--azul-claro);color:var(--azul-claro);">Volver a Gerencia</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <img src="img/logo_sidovi.png" alt="SIDOVI" class="footer-logo" />
+      <p>&copy; 2025 SIDOVI · Colviseg Ltda.</p>
+      <nav aria-label="Pie de página"><ul class="footer-nav"><li><a href="gerente.html">Gerencia</a></li><li><a href="contrato.html">Contratos</a></li></ul></nav>
+    </div>
+  </footer>
+  <script src="js/evaluacion.js"></script>
+</body>
+</html>
